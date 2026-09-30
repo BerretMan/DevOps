@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Code python
+        run: 'python app.py'
       - name: Checkout du code
         uses: actions/checkout@v4
       
