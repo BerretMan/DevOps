@@ -13,8 +13,5 @@ jobs:
       - name: Checkout du code
         uses: actions/checkout@v4
 
-      - name: Hello world
-        run: echo "Hello world"
-
       - name: Mail
         run: echo "le mail : ${{ vars.MAIL }}"
