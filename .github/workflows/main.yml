@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Code python
-        run: 'python app.py'
+        run: 'python ./app.py'
       - name: Checkout du code
         uses: actions/checkout@v4
       
