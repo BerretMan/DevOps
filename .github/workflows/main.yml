@@ -12,6 +12,6 @@ jobs:
     steps:
       - name: Checkout du code
         uses: actions/checkout@v4
-
-      - name: Mail
-        run: echo "le mail : ${{ vars.MAIL }}"
+      
+      - name: Le mail 
+        run: echo "mail : ${{ vars.MAIL }}"
