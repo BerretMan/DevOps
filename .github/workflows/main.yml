@@ -14,4 +14,4 @@ jobs:
         uses: actions/checkout@v4
       
       - name: Le mail 
-        run: echo "mail : ${{ vars.MAIL }}"
+        run: 'echo "mail : ${{ vars.MAIL }}"'
