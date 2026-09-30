@@ -15,5 +15,9 @@ jobs:
       
       - name: Code python
         run: 'python3 ./app.py'
+
       - name: Le mail 
         run: 'echo "mail : ${{ vars.MAIL }}"'
+
+      - name: branch 
+        run: 'echo "la branch est : $${{ github.ref_name }}"'
