@@ -1,0 +1,29 @@
+- name: Déployer Nginx avec Hello World
+  hosts: web
+  become: yes
+
+  tasks:
+    - name: Installer Nginx (Ubuntu/Debian)
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+        update_cache: yes
+      when: ansible_os_family == "Debian"
+
+    - name: Installer Nginx (Arch Linux)
+      community.general.pacman:
+        name: nginx
+        state: present
+      when: ansible_os_family == "Archlinux"
+
+    - name: Copier le fichier index.html
+      ansible.builtin.copy:
+        src: ../index.html
+        dest: "{{ '/var/www/html/index.html' if ansible_os_family == 'Debian' else '/usr/share/nginx/html/index.html' }}"
+        mode: '0644'
+
+    - name: Démarrer et activer Nginx
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: yes
